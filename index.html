@@ -4,35 +4,58 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
 </head>
 <body>
 	<header>
 		<div class="blockin flex jcsb ais">
 			<a href="/" class="logo">SINGOLO<span>*</span></a>
 			<nav class="top_menu">
-				<ul>
-					<li class="active"><a href="#">HOME</a></li>
-					<li><a href="#">SERVICES</a></li> 
-					<li><a href="#">PORTFOLIO</a></li>   
-					<li><a href="#">ABOUT</a></li> 
-					<li><a href="#">CONTACT</a></li>
+				<ul class="menu">
+					<li class="active"><a href="#home">HOME</a></li>
+					<li><a href="#services">SERVICES</a></li> 
+					<li><a href="#portfolio">PORTFOLIO</a></li>   
+					<li><a href="#about">ABOUT</a></li> 
+					<li><a href="#contacts">CONTACT</a></li>
 				</ul>
 			</nav>
 		</div>
 	</header>
-	<section class="sliderblocks">
+	<section class="sliderblocks" id="home">
 		<div class="blockin">
-			<div class="slider">
-				<img src="assets/images/slider_img1.png" class="sliderimg slider-img1" alt="">
-				<img src="assets/images/slider_img2.png" class="sliderimg slider-img2" alt="">
+			<div class="sliderwrap">
+				<div class="slider">
+					<div class="item" style="display: block;">
+						<div class="slider-img1" onclick="togglephone(this)">
+							<img src="assets/images/slider_img1.png" alt="">
+							<img src="assets/images/slider_img1active.png" alt="">
+						</div>
+						<div class="slider-img2" onclick="togglephone(this)">
+							<img src="assets/images/slider_img2.png" alt="">
+							<img src="assets/images/slider_img2active.png" alt="">
+						</div>
+					</div>
+					<div class="item">
+						<div class="slider-img2" onclick="togglephone(this)">
+							<img src="assets/images/slider_img2.png" alt="">
+							<img src="assets/images/slider_img2active.png" alt="">
+						</div>
+					</div>
+					<div class="item">
+						<div class="slider-img1" onclick="togglephone(this)">
+							<img src="assets/images/slider_img1.png" alt="">
+							<img src="assets/images/slider_img1active.png" alt="">
+						</div>
+					</div>
+				</div>
 				<div class="slidernav">
-					<div class="nav_left"></div>
-					<div class="nav_right"></div>
+					<div class="nav_left" onclick="minusSlide()"></div>
+					<div class="nav_right" onclick="plusSlide()"></div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<section class="our_services_block">
+	<section class="our_services_block" id="services">
 		<div class="blockin">
 			<h1>Our Services</h1>
 			<p>
@@ -84,35 +107,81 @@
 			</div>
 		</div>
 	</section>
-	<section class="portfolio">
+	<section class="portfolio" id="portfolio">
 		<div class="blockin">
 			<h2>Portfolio</h2>
 			<p>
 				Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
 			</p>
-			<ul class="portfolionav">
-				<li class="active">All</li>
-				<li>Web Design</li>
-				<li>Graphic Design</li>
-				<li>Artwork</li>
-			</ul>
-			<div class="portfolio-wrap">
-				<div class="portfolio-block"><img src="assets/images/portfolio1.jpg" alt=""></div>
-				<div class="portfolio-block"><img src="assets/images/portfolio2.jpg" alt=""></div>
-				<div class="portfolio-block"><img src="assets/images/portfolio3.jpg" alt=""></div>
-				<div class="portfolio-block"><img src="assets/images/portfolio4.jpg" alt=""></div>
-				<div class="portfolio-block"><img src="assets/images/portfolio5.jpg" alt=""></div>
-				<div class="portfolio-block"><img src="assets/images/portfolio6.jpg" alt=""></div>
-				<div class="portfolio-block"><img src="assets/images/portfolio7.jpg" alt=""></div>
-				<div class="portfolio-block"><img src="assets/images/portfolio8.jpg" alt=""></div>
-				<div class="portfolio-block"><img src="assets/images/portfolio9.jpg" alt=""></div>
-				<div class="portfolio-block"><img src="assets/images/portfolio10.jpg" alt=""></div>
-				<div class="portfolio-block"><img src="assets/images/portfolio11.jpg" alt=""></div>
-				<div class="portfolio-block"><img src="assets/images/portfolio12.jpg" alt=""></div>
+			<div class="tab">
+				<ul class="portfolionav tabnav">
+					<li class="active">All</li>
+					<li>Web Design</li>
+					<li>Graphic Design</li>
+					<li>Artwork</li>
+				</ul>
+				<div class="tabcon">
+					<div class="portfolio-wrap active">
+						<div class="portfolio-block"><img src="assets/images/portfolio1.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio2.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio3.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio4.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio5.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio6.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio7.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio8.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio9.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio10.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio11.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio12.jpg" alt=""></div>
+					</div>
+					<div class="portfolio-wrap">
+						<div class="portfolio-block"><img src="assets/images/portfolio4.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio5.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio6.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio7.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio1.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio2.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio3.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio8.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio9.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio10.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio11.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio12.jpg" alt=""></div>
+					</div>
+					<div class="portfolio-wrap">
+						<div class="portfolio-block"><img src="assets/images/portfolio7.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio8.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio9.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio10.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio11.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio12.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio1.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio2.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio3.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio4.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio5.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio6.jpg" alt=""></div>
+					</div>
+					<div class="portfolio-wrap">
+						<div class="portfolio-block"><img src="assets/images/portfolio12.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio3.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio10.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio4.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio1.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio5.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio6.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio2.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio7.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio8.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio9.jpg" alt=""></div>
+						<div class="portfolio-block"><img src="assets/images/portfolio11.jpg" alt=""></div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
-	<section class="about_us">
+	<section class="about_us" id="about">
 		<div class="blockin">
 			<h2>About Us</h2>
 			<p>
@@ -155,7 +224,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="get_a_quote">
+	<section class="get_a_quote" id="contacts">
 		<div class="blockin">
 			<h2>Get a Quote</h2>
 			<p>
@@ -165,9 +234,9 @@
 				<form action="mailto" class="quote_form">
 					<input type="text" name="name" required placeholder="Name (Required)">
 					<input type="mail" name="mail" required placeholder="Email (Required)">
-					<textarea name="text" placeholder="Describe your project in detail..."></textarea>
+					<textarea name="text" id="formtext" placeholder="Describe your project in detail..."></textarea>
 					<div class="form_group">
-						<input type="text" name="Subject" placeholder="Subject">
+						<input type="text" name="Subject" id="subject" placeholder="Subject">
 						<button type="submit">Send</button>
 					</div>
 				</form>
@@ -196,5 +265,11 @@
 			</div>
 		</div>
 	</footer>
+	<div class="popup_wrap" id="sendok">
+		<div class="wrap">
+			<div id="forminfo"></div>
+			<button id="closepopup">OK</button>
+		</div>
+	</div>
 </body>
 </html>
