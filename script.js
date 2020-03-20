@@ -22,7 +22,11 @@ window.onload = function () {
         li.addEventListener('click', function (e) {
             e.preventDefault();
             var blocktop = li.querySelectorAll('a')[0].hash.slice(1);
-            var top = document.getElementById(blocktop).offsetTop - 95;
+            if(window.innerWidth > 767){
+                var top = document.getElementById(blocktop).offsetTop - 95;
+            }else{
+                var top = document.getElementById(blocktop).offsetTop - 70;
+            }
             scrollIt(top);
             menu.forEach(function (lv1) {
                 lv1.classList.remove('active');
@@ -62,8 +66,13 @@ window.onload = function () {
     });
 
     document.getElementById('closepopup').addEventListener('click', function (e) {
-         document.querySelector('.popup_wrap').style.display = 'none';   
+        document.querySelector('.popup_wrap').style.display = 'none';   
     });
+    document.getElementById('burger').addEventListener('click', function (e) {
+        document.getElementById('burger').classList.toggle("open");
+        document.querySelector('.top_menu').classList.toggle("open");
+    });
+
 };
 
 function scrollIt(top) {
